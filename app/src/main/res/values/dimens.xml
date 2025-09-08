@@ -1,0 +1,28 @@
+<resources>
+
+    <dimen name="standard_margin_extra_big_32dp">32dp</dimen>
+    <dimen name="standard_margin_big_24dp">16dp</dimen>
+    <dimen name="standard_margin_medium_16dp">16dp</dimen>
+    <dimen name="standard_margin_small_8dp">8dp</dimen>
+
+    <dimen name="news_title_size">15sp</dimen>
+    <dimen name="news_subtitle_size">13sp</dimen>
+    <dimen name="news_copyright_size">12sp</dimen>
+    <dimen name="news_title_app_size">22sp</dimen>
+
+    <dimen name="news_divider_size">2dp</dimen>
+    <dimen name="news_width_image">90dp</dimen>
+    <dimen name="news_height_image">70dp</dimen>
+    <dimen name="news_header_size">50dp</dimen>
+
+    <!--detail-->
+    <dimen name="news_detail_title_size">30sp</dimen>
+    <dimen name="news_detail_sub_title_size">20sp</dimen>
+    <dimen name="news_detail_margin_bottom_extra_big_100dp">100sp</dimen>
+    <dimen name="news_detail_image_height_300dp">300dp</dimen>
+
+    <!-- snackbar -->
+    <dimen name="news_message_snack_bar_size">14sp</dimen>
+    <dimen name="news_snackbar_max_height">48dp</dimen>
+
+</resources>
