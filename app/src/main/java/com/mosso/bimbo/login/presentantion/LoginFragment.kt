@@ -1,12 +1,15 @@
-package com.mosso.bimbo.login
+package com.mosso.bimbo.login.presentantion
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.mosso.bimbo.R
 import com.mosso.bimbo.databinding.LoginFragmentBinding
 
 @AndroidEntryPoint
@@ -26,6 +29,11 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        with(binding) {
+            btnLogin.setOnClickListener {
+                findNavController().navigate(R.id.action_loginFragment_to_pokemonListFragment)
+            }
+        }
     }
 
     override fun onDestroy() {

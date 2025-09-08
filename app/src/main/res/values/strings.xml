@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Bimbo</string>
+    <string name="login_session">Iniciar Sesión</string>
 </resources>

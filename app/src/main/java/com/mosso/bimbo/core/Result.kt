@@ -1,4 +1,4 @@
-package com.mosso.bimbo.pokemon.data
+package com.mosso.bimbo.core
 
 sealed class Result<T> {
     data class Success<T>(val body: T) : Result<T>()

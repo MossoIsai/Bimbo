@@ -1,6 +1,6 @@
 package com.mosso.bimbo.core
 
-import com.mosso.bimbo.pokemon.data.PokemonService
+import com.mosso.bimbo.pokemon.data.service.PokemonService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

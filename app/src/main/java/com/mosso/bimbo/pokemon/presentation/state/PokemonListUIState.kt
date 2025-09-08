@@ -1,6 +1,6 @@
 package com.mosso.bimbo.pokemon.presentation.state
 
-import com.mosso.bimbo.pokemon.domain.Pokemon
+import com.mosso.bimbo.pokemon.domain.model.Pokemon
 
 sealed class PokemonListUIState {
     data object Loading : PokemonListUIState()

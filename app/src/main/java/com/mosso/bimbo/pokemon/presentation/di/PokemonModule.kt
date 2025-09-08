@@ -1,7 +1,7 @@
 package com.mosso.bimbo.pokemon.presentation.di
 
-import com.mosso.bimbo.pokemon.data.GetPokemonListRepositoryImp
-import com.mosso.bimbo.pokemon.domain.GetPokemonListRepository
+import com.mosso.bimbo.pokemon.data.repository.GetPokemonRepositoryImp
+import com.mosso.bimbo.pokemon.domain.repository.GetPokemonRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -15,7 +15,7 @@ abstract class PokemonModule {
     @Binds
     @Singleton
     abstract fun providePokemonRepository(
-        repositoryImp: GetPokemonListRepositoryImp
-    ): GetPokemonListRepository
+        repositoryImp: GetPokemonRepositoryImp
+    ): GetPokemonRepository
 
 }

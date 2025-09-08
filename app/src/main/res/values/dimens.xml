@@ -3,6 +3,7 @@
     <dimen name="standard_margin_extra_big_32dp">32dp</dimen>
     <dimen name="standard_margin_big_24dp">16dp</dimen>
     <dimen name="standard_margin_medium_16dp">16dp</dimen>
+    <dimen name="standard_margin_top_16dp">16dp</dimen>
     <dimen name="standard_margin_small_8dp">8dp</dimen>
 
     <dimen name="news_title_size">15sp</dimen>

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.mosso.bimbo.databinding.ItemLayoutPokemonBinding
-import com.mosso.bimbo.pokemon.domain.Pokemon
+import com.mosso.bimbo.pokemon.domain.model.Pokemon
 
 class PokemonAdapter(
     private val onSelectPokemon: (Pokemon) -> Unit
