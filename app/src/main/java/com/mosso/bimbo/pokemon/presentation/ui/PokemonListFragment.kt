@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -27,6 +28,7 @@ class PokemonListFragment : Fragment() {
     private val binding get() = _binding!!
     private val pokemonViewModel: PokemonViewModel by viewModels()
     private lateinit var pokemonAdapter: PokemonAdapter
+    private val title = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,6 +41,10 @@ class PokemonListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (requireActivity() as AppCompatActivity).supportActionBar?.apply {
+            title = "Bienvenido " + pokemonViewModel.getUserName()
+            setDisplayHomeAsUpEnabled(false)
+        }
         viewLifecycleOwner.lifecycleScope.launch {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 pokemonViewModel.uiState.collect { uiState ->

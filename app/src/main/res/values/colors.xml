@@ -6,4 +6,7 @@
     <color name="gray_text">#666666</color>
     <color name="gray_dark">#333333</color>
     <color name="gray_low">#C2C2C2</color>
+    <color name="gray_blue_bimbo">#051373</color>
+    <color name="gray_blue_low_bimbo">#3571C1</color>
+    <color name="gray_red_bimbo">#CE2F2C</color>
 </resources>
