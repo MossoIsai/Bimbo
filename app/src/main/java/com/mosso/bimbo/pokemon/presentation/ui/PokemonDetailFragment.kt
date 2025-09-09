@@ -39,7 +39,7 @@ class PokemonDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val pokemonName = arguments?.getString(KEY_NAME_POKEMON)
         (requireActivity() as AppCompatActivity).supportActionBar?.apply {
-            title = pokemonName ?: ""
+            title = pokemonName?.uppercase() ?: ""
             setDisplayHomeAsUpEnabled(true) // Show back arrow
         }
         pokemonName?.let {
