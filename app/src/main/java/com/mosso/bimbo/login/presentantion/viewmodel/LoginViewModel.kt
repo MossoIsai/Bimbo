@@ -27,4 +27,8 @@ class LoginViewModel @Inject constructor(
             _uiState.update { it.copy("Ingresa un nombre de usuario", false) }
         }
     }
+
+    fun clearError() {
+        _uiState.update { it.copy(errorMessage = null) }
+    }
 }

@@ -53,7 +53,7 @@ class LoginFragment : Fragment() {
                                     launchSingleTop = true
                                 })
                         } else if (!uiState.errorMessage.isNullOrEmpty()) {
-                            Log.d("BEBE", uiState.errorMessage)
+                            loginViewModel.clearError()
                         }
                     }
                 }
