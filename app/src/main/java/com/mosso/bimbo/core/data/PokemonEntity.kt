@@ -5,9 +5,9 @@ import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "pokemon", indices = [Index(value = ["newsId"], unique = true)])
+@Entity(tableName = "pokemon", indices = [Index(value = ["pokemonId"], unique = true)])
 data class PokemonEntity(
-    @PrimaryKey @ColumnInfo(name = "newsId") val newsId: Long,
+    @PrimaryKey(autoGenerate = true) val pokemonId: Int = 0, // 🔹 auto increment
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "url") val url: String,
 )

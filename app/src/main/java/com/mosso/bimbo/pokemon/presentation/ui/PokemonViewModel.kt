@@ -28,11 +28,11 @@ class PokemonViewModel @Inject constructor(
             .map { result ->
                 when (result) {
                     is Result.Success -> {
-                        if (result.body.pokemonList.isEmpty()) {
+                        if (result.body.isEmpty()) {
                             PokemonListUIState.Empty
                         } else {
                             PokemonListUIState.DisplayList(
-                                pokemonList = result.body.pokemonList
+                                pokemonList = result.body
                             )
                         }
                     }
@@ -50,7 +50,7 @@ class PokemonViewModel @Inject constructor(
                 initialValue = PokemonListUIState.Loading
             )
 
-     fun getUserName(): String {
+    fun getUserName(): String {
         var userName = ""
         viewModelScope.launch {
             userName = userPreferencesRepository.getUserName().first()
