@@ -7,6 +7,9 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.preferencesDataStoreFile
+import androidx.room.Room
+import com.mosso.bimbo.core.data.PokemonDao
+import com.mosso.bimbo.core.data.PokemonDatabase
 import com.mosso.bimbo.pokemon.data.service.PokemonService
 import dagger.Module
 import dagger.Provides
@@ -81,7 +84,7 @@ object CoreModule {
         )
     }
 
-    /*@Provides
+    @Provides
     fun provideDao(database: PokemonDatabase): PokemonDao =
         database.pokemonDao()
 
@@ -93,7 +96,7 @@ object CoreModule {
             PokemonDatabase::class.java,
             "pokemon_database"
         ).fallbackToDestructiveMigration(false)
-            .build()*/
+            .build()
 
     private const val BASE_URL = "https://pokeapi.co/api/v2/"
     private const val TIMEOUT_READ_HTTP = 30L
