@@ -11,9 +11,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.mosso.bimbo.R
 import com.mosso.bimbo.databinding.LoginFragmentBinding
-import com.mosso.bimbo.login.presentantion.state.LoginUIState
 import com.mosso.bimbo.login.presentantion.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -39,18 +39,21 @@ class LoginFragment : Fragment() {
             btnLogin.setOnClickListener {
                 loginViewModel.saveUserName(etEmail.text.toString())
             }
-
             viewLifecycleOwner.lifecycleScope.launch {
-                lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                lifecycle.repeatOnLifecycle(Lifecycle.State.CREATED) {
                     loginViewModel.uiState.collect { uiState ->
-                        when (uiState) {
-                            is LoginUIState.Error -> {
-                                Log.d("Mosso",  ""+uiState.message)
-                            }
-                            LoginUIState.Idle -> {}
-                            LoginUIState.OnNextScreen -> {
-                                findNavController().navigate(R.id.action_pokemonListFragment_to_pokemonDetailFragment)
-                            }
+                        if (uiState.shouldNextScreen) {
+                            findNavController().navigate(
+                                R.id.action_loginFragment_to_pokemonListFragment,
+                                null,
+                                navOptions {
+                                    popUpTo(findNavController().graph.startDestinationId) {
+                                        inclusive = true
+                                    }
+                                    launchSingleTop = true
+                                })
+                        } else if (!uiState.errorMessage.isNullOrEmpty()) {
+                            Log.d("BEBE", uiState.errorMessage)
                         }
                     }
                 }

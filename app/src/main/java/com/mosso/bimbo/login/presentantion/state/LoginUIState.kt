@@ -1,7 +1,6 @@
 package com.mosso.bimbo.login.presentantion.state
 
-sealed class LoginUIState {
-    data class Error(val message: String) : LoginUIState()
-    object OnNextScreen : LoginUIState()
-    object Idle : LoginUIState()
-}
+data class LoginUIState(
+    val errorMessage: String? = null,
+    val shouldNextScreen: Boolean = false,
+)

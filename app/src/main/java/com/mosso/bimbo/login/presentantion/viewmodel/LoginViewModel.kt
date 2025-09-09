@@ -16,15 +16,15 @@ class LoginViewModel @Inject constructor(
     private val userPreferencesRepository: UserPreferencesRepository
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow<LoginUIState>(LoginUIState.Idle)
+    private val _uiState = MutableStateFlow(LoginUIState())
     val uiState = _uiState.asStateFlow()
 
     fun saveUserName(userName: String) = viewModelScope.launch {
-        if (!userName.isNotBlank()) {
+        if (userName.isNotBlank()) {
             userPreferencesRepository.saveUserName(userName)
-            _uiState.emit(LoginUIState.OnNextScreen)
+            _uiState.update { it.copy(null, true) }
         } else {
-            _uiState.emit(LoginUIState.Error("Ingresa tu nombre de usuario"))
+            _uiState.update { it.copy("Ingresa un nombre de usuario", false) }
         }
     }
 }
