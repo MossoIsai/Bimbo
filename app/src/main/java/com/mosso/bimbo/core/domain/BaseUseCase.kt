@@ -1,7 +1,6 @@
-package com.mosso.bimbo.core
+package com.mosso.bimbo.core.domain
 
 import kotlinx.coroutines.flow.Flow
-
 
 @Suppress("UNCHECKED_CAST")
 abstract class BaseUseCase<Params, Output> {

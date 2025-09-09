@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Bimbo</string>
     <string name="login_session">Iniciar Sesión</string>
+    <string name="hint_user_name">Nombre de usuario</string>
 </resources>

@@ -1,7 +1,7 @@
 package com.mosso.bimbo.pokemon.domain.repository
 
 import com.mosso.bimbo.pokemon.data.models.GetPokemonListResponse
-import com.mosso.bimbo.core.Result
+import com.mosso.bimbo.core.presentation.Result
 import com.mosso.bimbo.pokemon.data.models.PokemonDetailResponse
 import kotlinx.coroutines.flow.Flow
 

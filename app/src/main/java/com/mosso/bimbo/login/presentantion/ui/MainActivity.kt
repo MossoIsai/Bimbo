@@ -1,4 +1,4 @@
-package com.mosso.bimbo.login.presentantion
+package com.mosso.bimbo.login.presentantion.ui
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

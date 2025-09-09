@@ -1,8 +1,8 @@
 package com.mosso.bimbo.pokemon.domain.usecase
 
-import com.mosso.bimbo.core.BaseUseCase
-import com.mosso.bimbo.core.CoreModule.IoDispatcher
-import com.mosso.bimbo.core.Result
+import com.mosso.bimbo.core.domain.BaseUseCase
+import com.mosso.bimbo.core.presentation.di.CoreModule.IoDispatcher
+import com.mosso.bimbo.core.presentation.Result
 import com.mosso.bimbo.pokemon.data.models.PokemonDetailResponse
 import com.mosso.bimbo.pokemon.domain.repository.GetPokemonRepository
 import kotlinx.coroutines.CoroutineDispatcher

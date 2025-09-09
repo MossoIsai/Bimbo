@@ -2,7 +2,7 @@ package com.mosso.bimbo.pokemon.presentation.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mosso.bimbo.core.Result
+import com.mosso.bimbo.core.presentation.Result
 import com.mosso.bimbo.pokemon.domain.usecase.GetDetailPokemonUseCase
 import com.mosso.bimbo.pokemon.presentation.state.PokemonDetailUIState
 import dagger.hilt.android.lifecycle.HiltViewModel
