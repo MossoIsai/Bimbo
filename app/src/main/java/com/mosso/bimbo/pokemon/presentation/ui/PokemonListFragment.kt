@@ -1,7 +1,6 @@
 package com.mosso.bimbo.pokemon.presentation.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,7 +27,6 @@ class PokemonListFragment : Fragment() {
     private val binding get() = _binding!!
     private val pokemonViewModel: PokemonViewModel by viewModels()
     private lateinit var pokemonAdapter: PokemonAdapter
-    private val title = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -104,15 +102,15 @@ class PokemonListFragment : Fragment() {
         }
     }
 
-    private fun showError(message: String) {
+    private fun showError(errorMessage: String) {
         with(binding) {
             sfLayout.visibility = View.GONE
             rvPokemonList.visibility = View.GONE
             clEmptyStateLayout.visibility = View.VISIBLE
-            Log.d("BEBE", message)
+            SnackBarMessage.make(clMainContainer, errorMessage)
+                .show()
         }
     }
-
 
     override fun onDestroy() {
         super.onDestroy()

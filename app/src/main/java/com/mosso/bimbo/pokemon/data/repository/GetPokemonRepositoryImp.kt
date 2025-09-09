@@ -13,6 +13,7 @@ import javax.inject.Inject
 class GetPokemonRepositoryImp @Inject constructor(
     private val apiService: PokemonService
 ) : GetPokemonRepository {
+
     override fun getPokemonList(): Flow<Result<GetPokemonListResponse>> =
         flow<Result<GetPokemonListResponse>> {
             val response = apiService.getPokemonList()

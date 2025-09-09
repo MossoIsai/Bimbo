@@ -2,8 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clContainerPokemonDetail"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvPokemonName"
@@ -23,11 +33,89 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/nunito_regular"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/abilities_label"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPokemonName"
-        tools:text="Habilidades" />
+        tools:text="Habilidades: " />
+
+    <TextView
+        android:id="@+id/tvAbilitiesList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAbilities"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toEndOf="@+id/tvAbilities"
+        app:layout_constraintTop_toTopOf="@+id/tvAbilities"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Habilidad 1, Habilidad 2" />
+
+    <TextView
+        android:id="@+id/tvWeightLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/weight_label"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAbilities"
+        tools:text="Peso: " />
+
+
+    <TextView
+        android:id="@+id/tvWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWeightLabel"
+        app:layout_constraintStart_toEndOf="@+id/tvWeightLabel"
+        app:layout_constraintTop_toTopOf="@+id/tvWeightLabel"
+        tools:text="6 Kg" />
+
+    <TextView
+        android:id="@+id/tvHeightLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/nunito_bold"
+        android:text="@string/height_label"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWeight"
+        tools:text="Altura: " />
+
+    <TextView
+        android:id="@+id/tvHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/nunito_regular"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvHeightLabel"
+        app:layout_constraintStart_toEndOf="@+id/tvHeightLabel"
+        app:layout_constraintTop_toTopOf="@+id/tvHeightLabel"
+        tools:text="0.7 Mts" />
+
+    <ImageView
+        android:id="@+id/imgPokemon"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="@string/content_description_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeightLabel" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

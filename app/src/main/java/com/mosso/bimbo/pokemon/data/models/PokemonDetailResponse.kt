@@ -5,7 +5,10 @@ import com.google.gson.annotations.SerializedName
 data class PokemonDetailResponse(
     val abilities: List<Abilities>,
     @SerializedName("base_experience") val baseExperience: Int,
-    val forms: List<Forms>,
+    val name: String,
+    val weight: Int,
+    val height: Int,
+    val sprites: Sprites
 )
 
 data class Abilities(
@@ -19,7 +22,6 @@ data class Ability(
     val url: String
 )
 
-data class Forms(
-    val name: String,
-    val url: String
+data class Sprites(
+    @SerializedName("front_default") val photo: String
 )

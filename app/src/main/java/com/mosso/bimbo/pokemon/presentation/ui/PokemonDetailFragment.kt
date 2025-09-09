@@ -11,6 +11,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.bumptech.glide.Glide
+import com.mosso.bimbo.R
 import com.mosso.bimbo.databinding.FragmentPokemonDetailBinding
 import com.mosso.bimbo.pokemon.data.models.PokemonDetailResponse
 import com.mosso.bimbo.pokemon.presentation.state.PokemonDetailUIState
@@ -47,8 +49,8 @@ class PokemonDetailFragment : Fragment() {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewmodel.uiState.collect { uiState ->
                     when (uiState) {
-                        is PokemonDetailUIState.Error -> Log.d("Mosso", uiState.message)
-                        PokemonDetailUIState.Loading -> Log.d("Mosso", "Loading")
+                        is PokemonDetailUIState.Error -> showError(uiState.message)
+                        PokemonDetailUIState.Loading -> showLoader()
                         is PokemonDetailUIState.ShowPokemonDetail -> showPokemonDetail(uiState.pokemonDetail)
                     }
                 }
@@ -58,7 +60,39 @@ class PokemonDetailFragment : Fragment() {
 
     private fun showPokemonDetail(pokemonDetailResponse: PokemonDetailResponse) {
         with(binding) {
-            binding.tvPokemonName.text = pokemonDetailResponse.forms[0].name
+            val abilities = pokemonDetailResponse.abilities
+            binding.tvPokemonName.text = pokemonDetailResponse.name
+            Glide.with(binding.imgPokemon).load(pokemonDetailResponse.sprites.photo)
+                .into(binding.imgPokemon)
+            binding.tvWeight.text =
+                getString(R.string.weight_format, pokemonDetailResponse.weight.toDouble() / 10)
+            binding.tvHeight.text =  getString(R.string.height_format, pokemonDetailResponse.height.toDouble() / 10)
+            binding.progressBar.visibility = View.GONE
+            binding.tvPokemonName.visibility = View.VISIBLE
+            binding.imgPokemon.visibility = View.VISIBLE
+            binding.tvHeight.visibility = View.VISIBLE
+            binding.tvHeight.visibility = View.VISIBLE
+            for (item in abilities) {
+                binding.tvAbilitiesList.append(item.ability.name + " ")
+            }
+        }
+    }
+
+    private fun showLoader() {
+        with(binding) {
+            binding.progressBar.visibility = View.VISIBLE
+            binding.tvPokemonName.visibility = View.GONE
+            binding.imgPokemon.visibility = View.GONE
+            binding.tvHeight.visibility = View.GONE
+            binding.tvHeight.visibility = View.GONE
+
+        }
+    }
+
+    private fun showError(errorMessage: String) {
+        with(binding) {
+            SnackBarMessage.make(clContainerPokemonDetail, errorMessage)
+                .show()
         }
     }
 

@@ -39,6 +39,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -63,6 +64,8 @@ dependencies {
     implementation(libs.shimmer)
     //datastore
     implementation(libs.androidx.datastore.preferences)
+    // glide
+    implementation(libs.glide)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
