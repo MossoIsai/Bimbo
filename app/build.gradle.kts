@@ -66,6 +66,10 @@ dependencies {
     implementation(libs.androidx.datastore.preferences)
     // glide
     implementation(libs.glide)
+    // room
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

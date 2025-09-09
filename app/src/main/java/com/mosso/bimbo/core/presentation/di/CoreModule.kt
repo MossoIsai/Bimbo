@@ -81,6 +81,20 @@ object CoreModule {
         )
     }
 
+    /*@Provides
+    fun provideDao(database: PokemonDatabase): PokemonDao =
+        database.pokemonDao()
+
+    @Provides
+    @Singleton
+    fun provideDatabase(@ApplicationContext context: Context): PokemonDatabase =
+        Room.databaseBuilder(
+            context,
+            PokemonDatabase::class.java,
+            "pokemon_database"
+        ).fallbackToDestructiveMigration(false)
+            .build()*/
+
     private const val BASE_URL = "https://pokeapi.co/api/v2/"
     private const val TIMEOUT_READ_HTTP = 30L
     private const val TIMEOUT_WRITE_HTTP = 30L
