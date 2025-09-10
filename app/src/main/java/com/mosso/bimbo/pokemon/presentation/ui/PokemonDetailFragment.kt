@@ -1,7 +1,6 @@
 package com.mosso.bimbo.pokemon.presentation.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -63,6 +62,7 @@ class PokemonDetailFragment : Fragment() {
             val abilities = pokemonDetailResponse.abilities
             binding.tvPokemonName.text = pokemonDetailResponse.name
             Glide.with(binding.imgPokemon).load(pokemonDetailResponse.sprites.photo)
+                .placeholder(R.drawable.poke_placeholder)
                 .into(binding.imgPokemon)
             binding.tvWeight.text =
                 getString(R.string.weight_format, pokemonDetailResponse.weight.toDouble() / 10)
@@ -82,15 +82,17 @@ class PokemonDetailFragment : Fragment() {
         with(binding) {
             binding.progressBar.visibility = View.VISIBLE
             binding.tvPokemonName.visibility = View.GONE
-            binding.imgPokemon.visibility = View.GONE
+            binding.imgPokemon.visibility = View.VISIBLE
             binding.tvHeight.visibility = View.GONE
             binding.tvHeight.visibility = View.GONE
-
         }
     }
 
     private fun showError(errorMessage: String) {
         with(binding) {
+            binding.tvPokemonName.visibility = View.VISIBLE
+            binding.imgPokemon.visibility = View.VISIBLE
+            binding.progressBar.visibility = View.GONE
             SnackBarMessage.make(clContainerPokemonDetail, errorMessage)
                 .show()
         }
