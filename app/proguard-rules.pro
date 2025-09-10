@@ -19,3 +19,17 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#Gson
+-keep class com.mosso.bimbo.pokemon.data.models** { *; }
+-keep class com.mosso.bimbo.pokemon.domain.model.Pokemon { *; }
+-keepattributes *Annotation*
+
+# Hilt/Dagger
+-keep class dagger.hilt.** { *; }
+-dontwarn dagger.hilt.**
+
+#room
+-keep class androidx.room.** { *; }
+-keep class * extends androidx.room.RoomDatabase
+-keep @androidx.room.Dao class * { *; }
