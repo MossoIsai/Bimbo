@@ -9,5 +9,6 @@
     <string name="height_label">Altura: </string>
     <string name="weight_format">%1$.1f KG</string>
     <string name="height_format">%1$.1f M</string>
+    <string name="empty_state">You do not have saved Pokemon yet to be able to view them offline🥹.</string>
 
 </resources>
