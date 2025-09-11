@@ -49,7 +49,6 @@ dependencies {
     ksp(libs.hilt.compiler)
     // core
     implementation(project(":core"))
-    //serialize
 
     implementation(libs.fragment.ktx)
     testImplementation(libs.junit)

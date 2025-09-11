@@ -9,13 +9,24 @@
         android:id="@+id/loginFragment"
         android:name="com.mosso.login.presentation.ui.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/login_fragment"/>
-
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_loginFragment_to_pokemonListFragment4"
+            app:destination="@id/pokemonListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/pokemonListFragment"
         android:name="com.mosso.pokemon.presentation.ui.PokemonListFragment"
         android:label="PokemonListFragment"
         tools:layout="@layout/pokemon_list_fragment">
-        <deepLink app:uri="bimbo://pokemon/list" />
+        <action
+            android:id="@+id/action_pokemonListFragment_to_pokemonDetailFragment"
+            app:destination="@id/pokemonDetailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/pokemonDetailFragment"
+        android:name="com.mosso.pokemon.presentation.ui.PokemonDetailFragment"
+        android:label="PokemonDetailFragment"
+        tools:layout="@layout/fragment_pokemon_detail" />
+
 </navigation>

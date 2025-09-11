@@ -5,19 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mosso.core.presentation.Navigator
 import com.mosso.pokemon.databinding.PokemonListFragmentBinding
 import com.mosso.pokemon.domain.models.PokemonDomain
 import com.mosso.pokemon.presentation.state.PokemonListUIState
-import com.mosso.pokemon.presentation.ui.PokemonDetailFragment.Companion.KEY_NAME_POKEMON
 import com.mosso.pokemon.presentation.viewModel.PokemonViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -67,13 +65,7 @@ class PokemonListFragment : Fragment() {
             rvPokemonList.visibility = View.VISIBLE
             clEmptyStateLayout.visibility = View.GONE
             pokemonAdapter = PokemonAdapter { item ->
-                val bundle = Bundle().apply {
-                    putString(KEY_NAME_POKEMON, item.name)
-                }
-
-                findNavController().navigate("app://pokemon/detail".toUri()) {
-                    arguments = bundle
-                }
+                (requireActivity() as? Navigator)?.navigateToPokemonDetail(item.name)
             }
             pokemonAdapter.submitList(pokemonList)
             rvPokemonList.layoutManager = LinearLayoutManager(
@@ -108,8 +100,8 @@ class PokemonListFragment : Fragment() {
             sfLayout.visibility = View.GONE
             rvPokemonList.visibility = View.GONE
             clEmptyStateLayout.visibility = View.VISIBLE
-           /* SnackBarMessage.make(clMainContainer, errorMessage)
-                .show()*/
+            /* SnackBarMessage.make(clMainContainer, errorMessage)
+                 .show()*/
         }
     }
 

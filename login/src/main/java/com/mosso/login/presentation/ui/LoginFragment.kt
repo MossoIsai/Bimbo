@@ -19,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import androidx.core.net.toUri
 import androidx.navigation.NavDeepLinkRequest
+import com.mosso.core.presentation.Navigator
 import com.mosso.login.R
 
 @AndroidEntryPoint
@@ -46,18 +47,7 @@ class LoginFragment : Fragment() {
                 lifecycle.repeatOnLifecycle(Lifecycle.State.CREATED) {
                     loginViewModel.uiState.collect { uiState ->
                         if (uiState.shouldNextScreen) {
-                            val uri = "bimbo://pokemon/list".toUri()
-                            Log.d("DEEPLINK", "Uri usada para navegar: $uri")
-                            val request = NavDeepLinkRequest.Builder.fromUri(uri).build()
-
-                            findNavController().navigate(request) {
-                                navOptions {
-                                    popUpTo(findNavController().graph.startDestinationId) {
-                                        inclusive = true
-                                    }
-                                    launchSingleTop = true
-                                }
-                            }
+                            (requireActivity() as? Navigator)?.navigateToPokemonList()
                         } else if (!uiState.errorMessage.isNullOrEmpty()) {
                             loginViewModel.clearError()
                         }
