@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Bimbo</string>
+    <string name="login_session">Iniciar Sesión</string>
+    <string name="hint_user_name">Nombre de usuario</string>
+    <string name="text_btn_ok">OK</string>
+    <string name="abilities_label">Habilidades: </string>
+    <string name="content_description_image">description</string>
+    <string name="weight_label">"Peso: "</string>
+    <string name="height_label">Altura: </string>
+    <string name="weight_format">%1$.1f KG</string>
+    <string name="height_format">%1$.1f M</string>
+    <string name="empty_state">You do not have saved Pokemon yet to be able to view them offline🥹.</string>
+
+</resources>

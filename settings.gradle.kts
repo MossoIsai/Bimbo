@@ -21,3 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Bimbo"
 include(":app")
+include(":core")
+include(":login")
+include(":pokemon")

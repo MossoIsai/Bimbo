@@ -54,29 +54,16 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
-    // retrofit
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.gson)
-    implementation(libs.okhttp)
     // hilt
     implementation(libs.hilt.android)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     ksp(libs.hilt.compiler)
-    //fragment
-    implementation(libs.fragment.ktx)
-    // shimmer
-    implementation(libs.shimmer)
-    //datastore
-    implementation(libs.androidx.datastore.preferences)
-    // glide
-    implementation(libs.glide)
-    // room
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
-    //lottie
-    implementation(libs.lottie)
+    // modules
+    implementation(project(":core"))
+    implementation(project(":login"))
+    implementation(project(":pokemon"))
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

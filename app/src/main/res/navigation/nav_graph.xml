@@ -7,26 +7,15 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.mosso.bimbo.login.presentantion.ui.LoginFragment"
+        android:name="com.mosso.login.presentation.ui.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/login_fragment">
-        <action
-            android:id="@+id/action_loginFragment_to_pokemonListFragment"
-            app:destination="@id/pokemonListFragment" />
-    </fragment>
+        tools:layout="@layout/login_fragment"/>
+
     <fragment
         android:id="@+id/pokemonListFragment"
-        android:name="com.mosso.bimbo.pokemon.presentation.ui.PokemonListFragment"
+        android:name="com.mosso.pokemon.presentation.ui.PokemonListFragment"
         android:label="PokemonListFragment"
         tools:layout="@layout/pokemon_list_fragment">
-        <action
-            android:id="@+id/action_pokemonListFragment_to_pokemonDetailFragment"
-            app:destination="@id/pokemonDetailFragment" />
+        <deepLink app:uri="bimbo://pokemon/list" />
     </fragment>
-    <fragment
-        android:id="@+id/pokemonDetailFragment"
-        android:name="com.mosso.bimbo.pokemon.presentation.ui.PokemonDetailFragment"
-        android:label="PokemonDetailFragment"
-        tools:layout="@layout/poke_detail_fragment" />
-
 </navigation>
